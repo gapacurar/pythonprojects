@@ -66,3 +66,10 @@ except:
 finally:
     myfiletoreadlines.close()
     print("This is block finally of reading line by line of file")
+# delete the file we used
+import os
+if os.path.exists("myfile.txt"):
+  os.remove("myfile.txt")
+  print("The file myfile.txt was deleted.")
+else:
+  print("The file does not exist")

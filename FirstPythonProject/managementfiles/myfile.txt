@@ -1,5 +1,0 @@
-Just default text.
-This is first line of text.
-This is second line of text.
-This is third line of text.
-This is fourth line of text.
