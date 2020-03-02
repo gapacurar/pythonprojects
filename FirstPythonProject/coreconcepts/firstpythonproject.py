@@ -37,7 +37,7 @@ if __name__ == "__main__":
     print("Global variable not overiden: "+globalVariableOne)
     print("================== using collections ==========================")
     # Python data types
-    binarytypeVariable = b"Example"
+    binarytypeVariable = "Example"
     print("Binary type variable Example:" + binarytypeVariable)
     byteArrayVariable = bytearray(10)
     print("Byte Array variable 10: "+byteArrayVariable)
