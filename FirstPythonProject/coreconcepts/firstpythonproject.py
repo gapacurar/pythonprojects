@@ -35,12 +35,12 @@ if __name__ == "__main__":
         print("Global variable one overiden : "+globalVariableOne)
     combined_variables_usage()
     print("Global variable not overiden: "+globalVariableOne)
-    print("================== using collections ==========================")
+    print("================== data types and predefined collections ==========================")
     # Python data types
     binarytypeVariable = "Example"
     print("Binary type variable Example:" + binarytypeVariable)
     byteArrayVariable = bytearray(10)
-    print("Byte Array variable 10: "+byteArrayVariable)
+    print("Byte Array variable 10: "+str(byteArrayVariable))
     memoryViewVariable = memoryview(bytes(5))
     print("Memory View variable bytes(5)" + str(memoryViewVariable))
     intNumericalVariable = -30
@@ -182,8 +182,76 @@ if __name__ == "__main__":
     print("2**3="+resultString)
     print("======================== using lists ==============================")
     thislist = ["apple", "banana", "cherry"]
+    print("First element of list is: "+thislist[0])
+    print("Last element of list is:"+thislist[-1])
+    thislist.append("plum")
+    print("After adding plum to list, content of list is: ")
+    print(thislist)
+    thislist.insert(3,"orange")
+    print("After inserting at index 3 organge in list, content of list is: ")
+    print(thislist)
+    print("Using a for...in...: to list all elements of list")
+    for currentelelementoflist in thislist:
+        print(" Elementul curent al listei este: " + currentelelementoflist)
+    print("Deleting last element of list")
     thislist.pop()
     print(thislist)
+    print("Deleting fist element of list")
+    thislist.pop(0)
+    print(thislist)
+    print("create a new list from initial list")
+    newlist = list(thislist)
+    print(newlist)
+    print("Insert new list at index 1 of old list")
+    thislist.insert(1,newlist)
+    print(thislist)
+    print("======================== using tuples ==============================")
+    thistuple = ("apple", "banana", "cherry")
+    print("First element of tuple is: "+thistuple[0])
+    print("Last element of tuple is:"+thistuple[-1])
+    print("Using a for...in...: to tuple all elements of tuple")
+    for currentelelementoftuple in thistuple:
+        print(" Elementul curent al tuplei este: " + currentelelementoftuple)
+    print("create a new tuple from initial tuple")
+    newtuple = tuple(thistuple)
+    print(newtuple)
+    print("======================== using sets ==============================")
+    thisset = {"fruts","tomato"}
+    thisset.add("apple")
+    thisset.add("banana")
+    thisset.add("cherry")
+    thisset.add("plum")
+    print("After adding plum to set, content of set is: ")
+    print(thisset)
+    print("Add lemon, cherry and nuts to set")
+    thisset.update(["lemon","cherry","nuts"])
+    print(thisset)
+    print("Using a for...in...: to set, all elements of list are:")
+    for currentelelementofset in thisset:
+        print(" Elementul curent al setului este: " + currentelelementofset)
+    print("Deleting apple from set")
+    thisset.remove("apple")
+    print(thisset)
+    print("Deleting last element of set")
+    thisset.pop()
+    print(thisset)
+    print("create a new set from initial list")
+    newset = set(thisset)
+    print(newset)
+    print("======================== using dictionaries ==============================")
+    thisdictionary = {"first":"apple", "second":"banana", "third":"cherry"}
+    print("First element of disctionary is: "+thisdictionary["first"])
+    print("Changing element with key three with value plum:")
+    thisdictionary["forth"]="plum"
+    print("After adding plum to list, content of disctionary is is: ")
+    print(thisdictionary)
+    print("Using a for...in...: to list all elements (key,value) of dictionary")
+    for currentelelementofdisctionarykey, currentelementofdictionaryvalue in thisdictionary.items():
+        print(" Key of current element of dictionary is: " + currentelelementofdisctionarykey)
+        print(" Value of current element of dictionary is: " + currentelementofdictionaryvalue)
+    print("Deleting second key element of list")
+    thisdictionary.pop("second")
+    print(thisdictionary) 
     print("====================using while statement ================================")
     i = 0
     while i < 8:
@@ -212,13 +280,15 @@ if __name__ == "__main__":
         print("Current element of collection is: "+currentElement)
     print("================= using classes  =============================")    
     class SpaceCoordinate:
-	xCoordinate = 0.0
-	yCoordinate = 0.0
-	zCoordinate = 0.0
-	def __init__(self, x,y,z):
-		self.xCoordinate = x
-		self.yCoordinate = y
-		self.zCoordinate = z
+        xCoordinate = 0.0
+        yCoordinate = 0.0
+        zCoordinate = 0.0
+        # class constructor
+        def __init__(self, x,y,z):
+            self.xCoordinate = x
+            self.yCoordinate = y
+            self.zCoordinate = z
+        # class coordinates printing function
         def print_space_point(self):
             print("x coordinate = "+str(self.xCoordinate))
             print("y coordinate = "+str(self.yCoordinate))
@@ -229,13 +299,15 @@ if __name__ == "__main__":
     SpaceCoordinate.print_space_point(spacePointOne)
     print("=================== using class inheritance ===========================") 
     class Person:
-	id = "000000000000"
-	surname = "default surname"
-	name = "default name"
-	def __init__(self, id,surname,name):
-		self.id = id
-		self.surname = surname
-		self.name = name
+        id = "000000000000"
+        surname = "default surname"
+        name = "default name"
+        #class constructor
+        def __init__(self, id,surname,name):
+            self.id = id
+            self.surname = surname
+            self.name = name
+        #class print_person function
         def print_person(self):
             print("Person id: "+str(self.id))
             print("Person surname: "+str(self.surname))
@@ -243,10 +315,11 @@ if __name__ == "__main__":
     class Employee(Person):
         employeeID = "CDDD_YYYY"
         employeeSalary = 0
-    	def __init__(self, id, surname, name, employeeID,employeeSalary):
-                Person.__init__(self,id,surname,name)
-		self.employeeID = employeeID
-		self.employeeSalary = employeeSalary
+        #class constructor
+        def __init__(self, id, surname, name, employeeID,employeeSalary):
+            Person.__init__(self,id,surname,name)
+            self.employeeID = employeeID
+            self.employeeSalary = employeeSalary
         def print_employee(self):
                 Person.print_person(self)
                 print("Employee ID: "+self.employeeID)
@@ -381,7 +454,7 @@ if __name__ == "__main__":
         print("String is float ?!?!?!?!")
     """
     print("======================= manage user input ============================")
-    username = raw_input("Enter username:")
+    username = input("Enter username:")
     print("Username is: " + username)
-    password = raw_input("Enter password:")
+    password = input("Enter password:")
     print("Password is: " + password)
