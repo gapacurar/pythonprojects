@@ -252,6 +252,18 @@ if __name__ == "__main__":
     print("Deleting second key element of list")
     thisdictionary.pop("second")
     print(thisdictionary) 
+    print("====================using if statement ================================")
+    username = input("Enter username:")
+    print("Username is: " + username)
+    password = input("Enter password:")
+    print("Password is: " + password)  
+    if "utilizator" == username:
+        if "parola" == password:
+            print("Username and password are both ok!")
+        else:
+            print("Username is ok but password is not!")
+    else:
+        print("Username is not ok!")
     print("====================using while statement ================================")
     i = 0
     while i < 8:
@@ -278,7 +290,47 @@ if __name__ == "__main__":
         print("Else element is:"+element)
     for currentElement in collection:
         print("Current element of collection is: "+currentElement)
-    print("================= using classes  =============================")    
+    print("================= using functions  =============================")
+    # define function computing with 3 parameters
+    # operation : = - * or /
+    # operand1  number 
+    # operand2  number
+    def computing(operation,operand1,operand2):
+        result =0.0
+        if "+" == operation:
+            result = operand1 + operand2
+        else:
+            if "-" == operation:
+                result = operand1 + operand2
+            else:
+                if "*" == operation:
+                    result = operand1 * operand2
+                else:
+                    if "/" == operation:
+                        result = operand1 / operand2
+                    else:
+                        print("Wrong operation! You have to use: + or - or * or/")
+        print(str(operand1)+" "+ str(operation) + " " + str(operand2) + " = " + str(result))
+    #call 4 times computing unction
+    computing("+",20.4,50.3)
+    computing("-",50.5,30.4)
+    computing("*",20.4,50.3)
+    computing("/",50.5,30.4)
+    print("================= using lambda functions  =============================")
+    # define lambda functions computing with 3 parameters
+    # operation : = - * or /
+    # operand1  number 
+    # operand2  number
+    add = lambda x,y : x+y
+    print("Result lambda add is: "+str(add(20,50.3)))
+    substract = lambda x,y : x-y
+    print("Result lambda substract is: "+str(substract(50.5,30.4)))
+    multiply = lambda x,y : x*y
+    print("Result lambda multiply is: "+str(multiply(20.4,50.3)))
+    divide = lambda x,y : x/y
+    print("Result lambda divide is: "+str(divide(50.5,30.4)))
+    print("================= using classes  =============================")  
+    # define class SpaceCoordinate
     class SpaceCoordinate:
         xCoordinate = 0.0
         yCoordinate = 0.0
@@ -293,8 +345,10 @@ if __name__ == "__main__":
             print("x coordinate = "+str(self.xCoordinate))
             print("y coordinate = "+str(self.yCoordinate))
             print("z coordinate = "+str(self.zCoordinate))
+    #create two objects or instances of class SpaceCoordinate
     spacePoint = SpaceCoordinate(10.0,11.0,12.0)
     spacePointOne = SpaceCoordinate(0.0,12.9,33.0)
+    # call print_space_point(self) fnction of created objects 
     SpaceCoordinate.print_space_point(spacePoint)
     SpaceCoordinate.print_space_point(spacePointOne)
     print("=================== using class inheritance ===========================") 
